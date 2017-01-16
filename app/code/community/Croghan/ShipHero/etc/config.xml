@@ -36,4 +36,10 @@
             </croghan_shiphero_setup>
         </resources>
     </global>
+    <default>
+        <croghan_shiphero>
+            <api_key><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_key>
+            <api_secret><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_secret>
+        </croghan_shiphero>
+    </default>
 </config>
