@@ -20,6 +20,13 @@
             <croghan_cataloginventory>
                 <class>Croghan_CatalogInventory_Model</class>
             </croghan_cataloginventory>
+            <cataloginventory>
+                <rewrite>
+                    <stock><class>Croghan_ShipHero_Model_Stock</class></stock>
+                    <stock_item><class>Croghan_ShipHero_Model_Stock_Item</class></stock_item>
+                    <indexer_stock><class>Croghan_ShipHero_Model_Indexer_Stock</class></indexer_stock>
+                </rewrite>
+            </cataloginventory>
         </models>
         <resources>
             <croghan_cataloginventory_setup>
