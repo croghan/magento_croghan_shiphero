@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Croghan_ShipHero>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends><!-- will depend on shiphero module --></depends>
+        </Croghan_ShipHero>
+    </modules>
+</config>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Croghan_CatalogInventory>
+            <version>1.0.0</version>
+        </Croghan_CatalogInventory>
+    </modules>
+    <global>
+        <blocks>
+            <croghan_cataloginventory>
+                <class>Croghan_CatalogInventory_Block</class>
+            </croghan_cataloginventory>
+        </blocks>
+        <helpers>
+            <croghan_cataloginventory>
+                <class>Croghan_CatalogInventory_Helper</class>
+            </croghan_cataloginventory>
+        </helpers>
+        <models>
+            <croghan_cataloginventory>
+                <class>Croghan_CatalogInventory_Model</class>
+            </croghan_cataloginventory>
+        </models>
+        <resources>
+            <croghan_cataloginventory_setup>
+                <setup>
+                    <module>Croghan_CatalogInventory</module>
+                </setup>
+            </croghan_cataloginventory_setup>
+        </resources>
+    </global>
+</config>
