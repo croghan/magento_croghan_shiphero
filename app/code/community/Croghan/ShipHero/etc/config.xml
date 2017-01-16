@@ -22,9 +22,9 @@
             </croghan_cataloginventory>
             <cataloginventory>
                 <rewrite>
-                    <stock><class>Croghan_ShipHero_Model_Stock</class></stock>
-                    <stock_item><class>Croghan_ShipHero_Model_Stock_Item</class></stock_item>
-                    <indexer_stock><class>Croghan_ShipHero_Model_Indexer_Stock</class></indexer_stock>
+                    <stock>Croghan_ShipHero_Model_Stock</stock>
+                    <stock_item>Croghan_ShipHero_Model_Stock_Item</stock_item>
+                    <indexer_stock>Croghan_ShipHero_Model_Indexer_Stock</indexer_stock>
                 </rewrite>
             </cataloginventory>
         </models>
