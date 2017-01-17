@@ -1,6 +1,6 @@
 <?php
 
-class Croghan_ShipHero_Helper_Data
+class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
 {
     protected $_url = 'https://api-gateway.shiphero.com/v1/general-api/';
     protected $_token;

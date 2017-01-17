@@ -2,7 +2,7 @@
     "name": "croghan/magento_croghan_shiphero",
     "type": "magento-module",
     "description": "CatalogInventory feature extension for Magento using ShipHero (shiphero.com)",
-    "homepage": "https://bitbucket.com/croghan/magento_croghan_shiphero",
+    "homepage": "https://github.com/croghan/magento_croghan_shiphero",
     "license": "OSL-3.0",
     "authors": [
         {
