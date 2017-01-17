@@ -28,6 +28,11 @@
                     <resource_stock_item>Croghan_ShipHero_Model_Resource_Stock_Item</resource_stock_item>
                 </rewrite>
             </cataloginventory>
+            <cataloginventory_resource>
+                <rewrite>
+                    <stock_item>Croghan_ShipHero_Model_Resource_Stock_Item</stock_item>
+                </rewrite>
+            </cataloginventory_resource>
         </models>
         <resources>
             <croghan_shiphero_setup>
@@ -35,6 +40,7 @@
                     <module>Croghan_ShipHero</module>
                 </setup>
             </croghan_shiphero_setup>
+
         </resources>
     </global>
     <default>
