@@ -43,11 +43,12 @@ class Croghan_ShipHero_Helper_Item
         if (isset ($_response['products']['results'])){
             foreach ($_response['products']['results'] as $productResult) {
                 if ($sku == $productResult['sku'] 
-                &&  isset ($productResult['warehouses'])){
+                &&  isset ($productResult['warehouses'])) {
                     foreach ($productResult['warehouses'] as $warehouseResult) {
                         // add warehouse logic //
                         $availableQty += $warehouseResult['available'];
                     }
+                }
             }
         }
 

@@ -329,10 +329,13 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
 	        if (!$this->hasStockQty()) {
 	            $this->setStockQty(0);  // prevent possible recursive loop
 
-	            //shiphero
+	            // shiphero product response //
+	            $response = $this->_helper()->getProduct($this->getProduct());
+	            // product, shiphero response, warehouse which will come from store map //
+	            $availableStock = $this->_helperItem()->getAvailable ($this->getProduct(), $response, array());
 	            
 
-	            $this->setStockQty($stockQty);
+	            $this->setStockQty($availableStock);
 	        }
     	}
 
@@ -386,5 +389,10 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
     protected function _helper()
     {
     	return Mage::helper('croghan_shiphero');
+    }
+
+    protected function _helperItem()
+    {
+    	return Mage::helper('croghan_shiphero/item');
     }
 }
