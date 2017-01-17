@@ -8,7 +8,7 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     protected function _construct()
     {
-    	parent::_construct();
+        parent::_construct();
         //$this->_init('cataloginventory/stock_item');
         //will eventually change this entirely
     }
@@ -21,12 +21,12 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function getStockId()
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-    		parent::getStockId();
-    	}
-    	else {
-    		return 1; // shiphero warehouse stuff
-    	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::getStockId();
+        }
+        else {
+            return 1; // shiphero warehouse stuff
+        }
     }
 
     /**
@@ -63,9 +63,9 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function subtractQty($qty)
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-    		parent::subtractQty($qty);
-    	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::subtractQty($qty);
+        }
 
         return $this;
     }
@@ -78,9 +78,9 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function addQty($qty)
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-    		parent::addQty($qty);
-    	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::addQty($qty);
+        }
 
         return $this;
     }
@@ -275,12 +275,12 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function addCatalogInventoryToProductCollection($productCollection)
     {
-		if ( ! $this->_helper()->isModuleEnabled()) {
-			parent::addCatalogInventoryToProductCollection($productCollection);
-		}
-		else {
-			//shiphero iterate through productCollection
-		}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::addCatalogInventoryToProductCollection($productCollection);
+        }
+        else {
+            //shiphero iterate through productCollection
+        }
 
         return $this;
     }
@@ -293,7 +293,7 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
     protected function _beforeSave()
     {
         if ( ! $this->_helper()->isModuleEnabled()) {
-        	parent::_beforeSave();
+            parent::_beforeSave();
         }
 
         return $this;
@@ -306,13 +306,13 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function getIsInStock()
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-    		return parent::getIsInStock();
-    	}
-    	else {
-    		//shiphero
-    		return true;
-    	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            return parent::getIsInStock();
+        }
+        else {
+            //shiphero
+            return true;
+        }
     }
 
     /**
@@ -322,22 +322,22 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function getStockQty()
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-    		return parent::getStockQty();
-    	}
-    	else {
-	        if (!$this->hasStockQty()) {
-	            $this->setStockQty(0);  // prevent possible recursive loop
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            return parent::getStockQty();
+        }
+        else {
+            if (!$this->hasStockQty()) {
+                $this->setStockQty(0);  // prevent possible recursive loop
 
-	            // shiphero product response //
-	            $response = $this->_helper()->getProduct($this->getProduct());
-	            // product, shiphero response, warehouse which will come from store map //
-	            $availableStock = $this->_helperItem()->getAvailable ($this->getProduct(), $response, array());
-	            
+                // shiphero product response //
+                $response = $this->_helper()->getProduct(array('sku' => $this->getSku()));
+                // product, shiphero response, warehouse which will come from store map //
+                $availableStock = $this->_helperItem()->getAvailable ($this->getSku(), $response, array());
+                
 
-	            $this->setStockQty($availableStock);
-	        }
-    	}
+                $this->setStockQty($availableStock);
+            }
+        }
 
         return $this->getData('stock_qty');
     }
@@ -348,9 +348,9 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function reset()
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-     		parent::reset();
-     	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::reset();
+        }
 
         return $this;
     }
@@ -363,8 +363,8 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function setProcessIndexEvents($process = true)
     {
-		if ( ! $this->_helper()->isModuleEnabled()) {
-        	parent::setProcessIndexEvents($process);
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::setProcessIndexEvents($process);
         }
 
         return $this;
@@ -377,22 +377,22 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
      */
     public function afterCommitCallback()
     {
-    	if ( ! $this->_helper()->isModuleEnabled()) {
-        	parent::afterCommitCallback();
-    	}
+        if ( ! $this->_helper()->isModuleEnabled()) {
+            parent::afterCommitCallback();
+        }
 
-    	return $this;
+        return $this;
     }
 
 
 
     protected function _helper()
     {
-    	return Mage::helper('croghan_shiphero');
+        return Mage::helper('croghan_shiphero');
     }
 
     protected function _helperItem()
     {
-    	return Mage::helper('croghan_shiphero/item');
+        return Mage::helper('croghan_shiphero/item');
     }
 }
