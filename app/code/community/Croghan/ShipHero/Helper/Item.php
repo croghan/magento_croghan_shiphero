@@ -31,11 +31,10 @@ class Croghan_ShipHero_Helper_Item
 
    public function getAvailable ($_product, $_response, $_warehouse = array())
    {
-        if (is_string($_product)) {
-            $sku = $_product;
-        }
-        elseif (is_object($_product)) {
-            $sku = $_product->getSku();
+        $sku = $_product;
+
+        if (is_object($sku)) {
+            $sku = $sku->getSku();
         }
 
         $availableQty = 0;
