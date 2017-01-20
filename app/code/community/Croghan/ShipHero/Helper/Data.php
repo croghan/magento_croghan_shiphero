@@ -2,9 +2,9 @@
 
 class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    protected $_url = 'https://api-gateway.shiphero.com/v1/general-api/';
     protected $_token;
 
+    const GENERAL_API_URL = 'https://api-gateway.shiphero.com/v1/general-api/';
     const XML_API_KEY = 'croghan_shiphero/api_key';
     const XML_API_SECRET = 'croghan_shiphero/api_secret';
 
@@ -165,7 +165,7 @@ class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
     public function getProduct($_fields = array())
     {
         // build url //
-        $url = sprintf("%s%s", $this->_url, self::GET_PRODUCT);
+        $url = sprintf("%s%s", SELF::GENERAL_API_URL, self::GET_PRODUCT);
 
         // generate fields; add defaults to missing //
         $fields = array();
