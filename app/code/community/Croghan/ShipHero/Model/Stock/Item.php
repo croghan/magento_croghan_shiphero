@@ -3,50 +3,12 @@
 class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stock_Item
 {
     /**
-     * Initialize resource model
+     * set stock qty
      *
      */
-    protected function _construct()
+    public function setQty($_qty)
     {
-        parent::_construct();
-        //$this->_init('cataloginventory/stock_item');
-        //will eventually change this entirely
-    }
-
-    /**
-     * Retrieve stock identifier
-     *
-     * @todo multi stock
-     * @return int
-     */
-    public function getStockId()
-    {
-        if ( ! $this->_helper()->isModuleEnabled()) {
-            parent::getStockId();
-        }
-        else {
-            return 1; // shiphero warehouse stuff; most likely won't even touch this
-        }
-    }
-
-    /**
-     * Retrieve Stock Availability
-     *
-     * @return bool|int
-     */
-    public function getIsInStock()
-    {
-        if ( ! $this->_helper()->isModuleEnabled()) {
-            return parent::getIsInStock();
-        }
-        else {
-            if ( ! $this->getData('shiphero_is_in_stock')) {
-                $this->setData('shiphero_is_in_stock', ((int)$this->getQty() > 0));
-                $this->setData('is_in_stock', ((int)$this->getQty() > 0));
-            }
-
-            return $this->getData('is_in_stock');
-        }
+        $this->getQty(); // in case qty isn't set
     }
 
     /**
