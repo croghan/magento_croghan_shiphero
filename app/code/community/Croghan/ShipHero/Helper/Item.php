@@ -52,7 +52,7 @@ class Croghan_ShipHero_Helper_Item
         }
 
         Mage::log(
-            sprintf("getAvailable: sku '%s', availabilityQty '%s'", $sku, $availableQty),
+            sprintf("Croghan_ShipHero_Helper_Item::getAvailable: sku '%s', availabilityQty '%s'", $sku, $availableQty),
             null,
             'shiphero.log'
         );
