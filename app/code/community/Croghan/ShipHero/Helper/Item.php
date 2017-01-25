@@ -57,7 +57,7 @@ class Croghan_ShipHero_Helper_Item
 
         // log quantity hits //
         Mage::log(
-            sprintf("{__CLASS__}::{__METHOD__}: sku '%s', availabilityQty '%s'", $sku, $availableQty),
+            sprintf("%s::%s: sku '%s', availabilityQty '%s'", __CLASS__, __METHOD__, $sku, $availableQty),
             null,
             'shiphero.log'
         );
@@ -65,7 +65,7 @@ class Croghan_ShipHero_Helper_Item
         // force log database out of sync //
         if ( ! $skuFound) {
             Mage::log(
-                sprintf("{__CLASS__}::{__METHOD__}: sku '%s', not found in ShipHero database", $sku),
+                sprintf("%s::%s: sku '%s', not found in ShipHero database", __CLASS__, __METHOD__, $sku),
                 null,
                 'shiphero.log',
                 true
