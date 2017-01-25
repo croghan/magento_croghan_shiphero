@@ -38,11 +38,15 @@ class Croghan_ShipHero_Helper_Item
         }
 
         $availableQty = 0;
+        $skuFound = false; // log products out of sync from shiphero
 
         if (isset ($_response['products']['results'])){
             foreach ($_response['products']['results'] as $productResult) {
                 if ($sku == $productResult['sku'] 
                 &&  isset ($productResult['warehouses'])) {
+
+                    $skuFound = true;
+
                     foreach ($productResult['warehouses'] as $warehouseResult) {
                         // add warehouse logic //
                         $availableQty += $warehouseResult['available'];
@@ -51,11 +55,22 @@ class Croghan_ShipHero_Helper_Item
             }
         }
 
+        // log quantity hits //
         Mage::log(
-            sprintf("Croghan_ShipHero_Helper_Item::getAvailable: sku '%s', availabilityQty '%s'", $sku, $availableQty),
+            sprintf("{__CLASS__}::{__METHOD__}: sku '%s', availabilityQty '%s'", $sku, $availableQty),
             null,
             'shiphero.log'
         );
+
+        // force log database out of sync //
+        if ( ! $skuFound) {
+            Mage::log(
+                sprintf("{__CLASS__}::{__METHOD__}: sku '%s', not found in ShipHero database", $sku),
+                null,
+                'shiphero.log',
+                true
+            );
+        }
 
         return $availableQty;
    }
