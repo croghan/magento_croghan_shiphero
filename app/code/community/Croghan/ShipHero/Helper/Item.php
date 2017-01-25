@@ -38,7 +38,7 @@ class Croghan_ShipHero_Helper_Item
         }
 
         $availableQty = 0;
-        $skuFound = true; // log products out of sync from shiphero
+        $skuFound = false; // log products out of sync from shiphero
 
         if (isset ($_response['products']['results'])){
             foreach ($_response['products']['results'] as $productResult) {

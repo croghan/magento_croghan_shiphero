@@ -40,13 +40,21 @@
                     <module>Croghan_ShipHero</module>
                 </setup>
             </croghan_shiphero_setup>
-
         </resources>
     </global>
     <default>
         <croghan_shiphero>
             <api_key><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_key>
             <api_secret><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_secret>
+            <warehouses><!-- add to local.xml; Primary,Foo,Bar. Add all warehouses here for admin --></warehouses>
         </croghan_shiphero>
     </default>
+    <!--stores>
+        <example_store>
+            <warehouses>Primary,Foo,Bar</warehouses>
+        </example_store>
+        <another_example>
+            <warehouses>Primary,Foo,Bar</warehouses>
+        </another_example>
+    </stores-->
 </config>
