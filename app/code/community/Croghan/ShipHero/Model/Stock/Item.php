@@ -94,7 +94,7 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
                 //error_log(sprintf("response\n\n%s\n\n", print_r($response,true)));
 
                 // product, shiphero response, warehouse which will come from store map //
-                $availableQty = $this->_helperItem()->getAvailable ($this->getSku(), $response, array());
+                $availableQty = $this->_helperItem()->getAvailable ($this->getSku(), $response, $this->_helperWarehouse()->getWarehouses());
                 //error_log(sprintf("availableQty: %s", $availableQty));
 
                 $this->setData('shiphero_qty', (float)$availableQty);
@@ -123,5 +123,15 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
     protected function _helperItem()
     {
         return Mage::helper('croghan_shiphero/item');
+    }
+
+    /*
+     * _helperWarehouse
+     *
+     * return warehouse helper
+     */
+    protected function _helperWarehouse()
+    {
+        return Mage::helper('croghan_shiphero/warehouse');
     }
 }

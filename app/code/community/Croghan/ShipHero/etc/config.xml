@@ -51,10 +51,14 @@
     </default>
     <!--stores>
         <example_store>
-            <warehouses>Primary,Foo,Bar</warehouses>
+            <croghan_shiphero>
+                <warehouses>Primary,Foo,Bar</warehouses>
+            </croghan_shiphero>
         </example_store>
         <another_example>
-            <warehouses>Primary,Foo,Bar</warehouses>
+            <croghan_shiphero>
+                <warehouses>Primary,Foo,Bar</warehouses>
+            </croghan_shiphero>
         </another_example>
     </stores-->
 </config>

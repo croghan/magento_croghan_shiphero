@@ -48,16 +48,26 @@ class Croghan_ShipHero_Helper_Item
                     $skuFound = true;
 
                     foreach ($productResult['warehouses'] as $warehouseResult) {
-                        // add warehouse logic //
-                        $availableQty += $warehouseResult['available'];
+                        // check against warehouses passed //
+                        if (preg_grep( "/{$warehouseResult['warehouse']}/i" , $_warehouse)) {
+                            // add to available Qty //
+                            $availableQty += $warehouseResult['available'];
+
+                            // log warehouse quantity hit //
+                            Mage::log(
+                                sprintf("%s::%s: sku '%s', availabilityQty '%s' in warehouse '%s'", __CLASS__, __METHOD__, $sku, $warehouseResult['available'], $warehouseResult['warehouse']),
+                                null,
+                                'shiphero.log'
+                            );
+                        }
                     }
                 }
             }
         }
 
-        // log quantity hits //
+        // log total quantity hit //
         Mage::log(
-            sprintf("%s::%s: sku '%s', availabilityQty '%s'", __CLASS__, __METHOD__, $sku, $availableQty),
+            sprintf("%s::%s: sku '%s', total availabilityQty '%s'", __CLASS__, __METHOD__, $sku, $availableQty),
             null,
             'shiphero.log'
         );
