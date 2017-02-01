@@ -41,8 +41,6 @@
                 </setup>
             </croghan_shiphero_setup>
         </resources>
-    </global>
-    <frontend>
         <events>
             <catalog_product_is_salable_after>
                 <observers>
@@ -52,8 +50,24 @@
                     </shiphero_stock_check>
                 </observers>
             </catalog_product_is_salable_after>
+            <sales_model_service_quote_submit_after>
+                <observers>
+                    <shiphero_stock_check_cache_clean_checkout>
+                        <class>Croghan_ShipHero_Model_Observer</class>
+                        <method>cleanCacheAfterCheckout</method>
+                    </shiphero_stock_check_cache_clean_checkout>
+                </observers>
+            </sales_model_service_quote_submit_after>
+            <catalog_product_save_after>
+                <observers>
+                    <shiphero_stock_check_cache_clean_product_save>
+                        <class>Croghan_ShipHero_Model_Observer</class>
+                        <method>cleanCacheAfterProductSave</method>
+                    </shiphero_stock_check_cache_clean_product_save>
+                </observers>
+            </catalog_product_save_after>
         </events>
-    </frontend>
+    </global>
     <default>
         <croghan_shiphero>
             <api_key><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_key>
