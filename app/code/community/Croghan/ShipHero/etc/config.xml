@@ -42,6 +42,18 @@
             </croghan_shiphero_setup>
         </resources>
     </global>
+    <frontend>
+        <events>
+            <catalog_product_is_salable_after>
+                <observers>
+                    <shiphero_stock_check>
+                        <class>Croghan_ShipHero_Model_Observer</class>
+                        <method>isSalableAfterStockCheck</method>
+                    </shiphero_stock_check>
+                </observers>
+            </catalog_product_is_salable_after>
+        </events>
+    </frontend>
     <default>
         <croghan_shiphero>
             <api_key><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_key>
