@@ -106,6 +106,11 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
                 $this->_saveQtyCache((float)$availableQty); // save cache //
             }
 
+            // always keep in stock if qty is above min qty //
+            if ($this->getData('qty') > $this->getMinQty()) {
+                $this->setData('is_in_stock', Mage_CatalogInventory_Model_Stock_Status::STATUS_IN_STOCK);
+            }
+
             return $this->getData('qty');
         }
     }
