@@ -33,7 +33,7 @@ class Croghan_ShipHero_Model_Observer
             }
 
             // if there's stock, it's salable, else not //
-            if ($product->getStockItem()->getQty() > 0) {
+            if ($product->getStockItem()->getQty() > $product->getStockItem()->getMinQty()) {
                 $product->setData('is_salable', 1);
             }
             else {

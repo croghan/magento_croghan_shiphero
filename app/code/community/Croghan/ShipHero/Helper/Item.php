@@ -39,6 +39,7 @@ class Croghan_ShipHero_Helper_Item
 
         $availableQty = 0;
         $skuFound = false; // log products out of sync from shiphero
+        $warehouseDupe = array();
 
         if (isset ($_response['products']['results'])){
             foreach ($_response['products']['results'] as $productResult) {
@@ -49,7 +50,10 @@ class Croghan_ShipHero_Helper_Item
 
                     foreach ($productResult['warehouses'] as $warehouseResult) {
                         // check against warehouses passed //
-                        if (preg_grep( "/{$warehouseResult['warehouse']}/i" , $_warehouse)) {
+                        if ( ! isset($warehouseDupe[$warehouseResult['warehouse']])
+                        &&  preg_grep( "/{$warehouseResult['warehouse']}/i" , $_warehouse)) {
+                            $warehouseDupe[$warehouseResult['warehouse']] = 1; // shiphero duplicate results bug fix
+
                             // add to available Qty //
                             $availableQty += $warehouseResult['available'];
 
