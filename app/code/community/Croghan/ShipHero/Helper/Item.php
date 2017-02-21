@@ -51,7 +51,7 @@ class Croghan_ShipHero_Helper_Item
                     foreach ($productResult['warehouses'] as $warehouseResult) {
                         // check against warehouses passed //
                         if ( ! isset($warehouseDupe[$warehouseResult['warehouse']])
-                        &&  preg_grep( "/{$warehouseResult['warehouse']}/i" , $_warehouse)) {
+                        &&  preg_grep( "/^{$warehouseResult['warehouse']}$/i" , $_warehouse)) {
                             $warehouseDupe[$warehouseResult['warehouse']] = 1; // shiphero duplicate results bug fix
 
                             // add to available Qty //
