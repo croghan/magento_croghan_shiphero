@@ -130,7 +130,10 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
         $tags[] = self::EXTRA_CACHE_TAG;
         $jsonArr = array('qty' => (float)$_qty);
 
-        Mage::app()->saveCache(json_encode($jsonArr), $this->_getStoreCacheTag(), $tags);
+        Mage::app()->saveCache(json_encode($jsonArr), $this->_getStoreCacheTag(), $tags, 2592000);
+        //Set cache lifetime to 1 month instead of 2 hours
+        //And I think the line 133 may need to be:
+        //Mage::app()->saveCache(json_encode($jsonArr), $this->_getStoreCacheTag(), self::EXTRA_CACHE_TAG, 2592000);
     }
 
     /**
@@ -163,7 +166,9 @@ class Croghan_ShipHero_Model_Stock_Item extends Mage_CatalogInventory_Model_Stoc
         $tags[] = self::EXTRA_CACHE_TAG;
 
         if ($tags !== false) {
-            Mage::app()->cleanCache($tags);
+            //Mage::log($tags, 1, "AdminSaveDebug.log");
+            //Mage::app()->cleanCache($tags);
+            //Prevent clear tag of "shiphero_stock"
             Mage::app()->removeCache($this->_getStoreCacheTag());
         }
 
