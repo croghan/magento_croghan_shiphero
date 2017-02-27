@@ -91,9 +91,10 @@ class Croghan_ShipHero_Model_Observer
         }
 
         // dev log //
-        Mage::log(sprintf("%s::%s: clearing shiphero cache for product sku %s", __CLASS__, __METHOD__, $product->getSku()), null, "shiphero.log");
+        Mage::log(sprintf("%s::%s: Attemped to clear shiphero cache for product sku %s", __CLASS__, __METHOD__, $product->getSku()), null, "shiphero.log");
 
-        $product->getStockItem()->cleanModelCache(); // clean cache
+        //Not clear cache due to some other extension would save product causes unnecessary cache flushed.
+        //$product->getStockItem()->cleanModelCache(); // clean cache
 
         return $this;
     }
