@@ -31,7 +31,7 @@ class Croghan_ShipHero_Model_Config extends Varien_Object // from system config
         $store = Mage::app()->getStore($_storeCode);
 
         if ( ! $store) {
-            throw new Mage_Core_Exception(sprintf("%s::%s invalid store code '%s'", __CLASS__, __METHOD__, $_storeCode));
+            throw new Mage_Core_Exception(sprintf("%s invalid store code '%s'", __METHOD__, $_storeCode));
         }
         $storeCode = $store->getCode();
 
@@ -49,15 +49,15 @@ class Croghan_ShipHero_Model_Config extends Varien_Object // from system config
 
         // validate data //
         if ( ! $validater->isValid($_storeConfigData[self::XML_API_KEY])) {
-            throw new Mage_Core_Exception (sprintf("%s::%s no api key", __CLASS__, __METHOD__));
+            throw new Mage_Core_Exception (sprintf("%s no api key", __METHOD__));
         }
 
         if ( ! $validater->isValid($_storeConfigData[self::XML_API_SECRET])) {
-            throw new Mage_Core_Exception (sprintf("%s::%s no api secret", __CLASS__, __METHOD__));
+            throw new Mage_Core_Exception (sprintf("%s no api secret", __METHOD__));
         }
 
         if ( ! $validater->isValid($_storeConfigData[self::XML_WAREHOUSES])) {
-            throw new Mage_Core_Exception (sprintf("%s::%s no warehouses", __CLASS__, __METHOD__));
+            throw new Mage_Core_Exception (sprintf("%s no warehouses", __METHOD__));
         }
 
         // set data //
