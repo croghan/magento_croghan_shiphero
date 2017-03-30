@@ -21,6 +21,8 @@ class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
         if ( ! $this->_api) {
             $this->_api = Mage::getModel('croghan_shiphero/api');
         }
+
+        return $this->_api;
     }
 
     /*
