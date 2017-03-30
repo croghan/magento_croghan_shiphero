@@ -25,6 +25,7 @@ class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_api;
     }
 
+    //DEPRECATED; STILL USED BY STOCK_ITEM
     /*
      * getProduct
      *
@@ -34,13 +35,7 @@ class Croghan_ShipHero_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getProduct($_fields = array())
     {
-        // generate fields; add defaults to missing //
-        $fields = array();
-        $fields['sku'] = isset($_fields['sku']) ? $_fields['sku'] : '';
-        $fields['page'] = isset($_fields['page']) ? $_fields['page'] : 1;
-        $fields['count'] = isset($_fields['count']) ? $_fields['count'] : 10;
-
-        return $this->api()->getProduct($fields);
+        return $this->api()->getProduct($_fields);
     }
 
 
