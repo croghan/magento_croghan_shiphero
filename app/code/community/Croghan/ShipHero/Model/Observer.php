@@ -66,7 +66,7 @@ class Croghan_ShipHero_Model_Observer
             }
 
             // dev log //            
-            Mage::log(sprintf("%s::%s: clearing shiphero cache for product sku %s", __CLASS__, __METHOD__, $product->getSku()), null, "shiphero.log");
+            Mage::log(sprintf("%s clearing shiphero cache for product sku %s", __METHOD__, $product->getSku()), null, "shiphero.log");
 
             $product->getStockItem()->cleanModelCache(); // clean cache
         }
@@ -91,7 +91,7 @@ class Croghan_ShipHero_Model_Observer
         }
 
         // dev log //
-        Mage::log(sprintf("%s::%s: clearing shiphero cache for product sku %s", __CLASS__, __METHOD__, $product->getSku()), null, "shiphero.log");
+        Mage::log(sprintf("%s clearing shiphero cache for product sku %s", __METHOD__, $product->getSku()), null, "shiphero.log");
 
         $product->getStockItem()->cleanModelCache(); // clean cache
 
