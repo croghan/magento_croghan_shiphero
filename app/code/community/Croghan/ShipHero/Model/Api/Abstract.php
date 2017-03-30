@@ -9,10 +9,6 @@ abstract class Croghan_ShipHero_Model_Api_Abstract implements Croghan_ShipHero_M
     // endpoint type //
     protected $_endpointType = 0; // see Croghan_ShipHero_Model_Api
 
-    // = 'get-product'; //http://docs.shipheropublic.apiary.io/#reference/products/get-product/get-product
-    const GET_ORDERS = 'get-orders'; //http://docs.shipheropublic.apiary.io/#reference/orders/get-orders/get-orders
-    const GET_ORDER = 'get-order'; //http://docs.shipheropublic.apiary.io/#reference/orders/get-orders/get-order
-
     /*
      * getEndpoint method
      *
