@@ -148,19 +148,20 @@ class Croghan_ShipHero_Model_Api
     /**
      * __call magic caller for endpoint methods
      */
-    public function __call($_endpointName, $_data /*arguments*/)
+    public function __call($_endpointName, $_data /*arguments; only want [0]*/)
     {
         $endpointModelName = sprintf("croghan_shiphero/api_%s", strtolower($_endpointName));
         $endpointModel = Mage::getModel($endpointModelName);
+        $data = (isset($_data[0]) ? $_data[0] : array());
 
         if ( ! $endpointModel instanceof Croghan_ShipHero_Model_Api_Abstract) {
             throw new Mage_Core_Exception(sprintf("%s invalid endpoint '%s => %s'", __METHOD__, $_endpointName, $_endpointModelName));
         }
 
-        //echo sprintf("%s API call endpoint name '%s' => endpoint model name '%s' with arguments:\n%s", __METHOD__, $_endpointName, $endpointModelName, print_r($_data, true));
+        //echo sprintf("%s API call endpoint name '%s' => endpoint model name '%s' with arguments:\n%s", __METHOD__, $_endpointName, $endpointModelName, print_r($data, true));
 
         Mage::log(
-            sprintf("%s API call endpoint name '%s' => endpoint model name '%s' with arguments:\n%s", __METHOD__, $_endpointName, $endpointModelName, print_r($_data, true)),
+            sprintf("%s API call endpoint name '%s' => endpoint model name '%s' with arguments:\n%s", __METHOD__, $_endpointName, $endpointModelName, print_r($data, true)),
             null,
             'shiphero.log'
         );
@@ -168,7 +169,7 @@ class Croghan_ShipHero_Model_Api
         // build url //
         $url = sprintf("%s%s", self::GENERAL_API_URL, $endpointModel->getEndpoint());
         // generate fields //
-        $fields = $endpointModel->generateFields ($_data);
+        $fields = $endpointModel->generateFields ($data);
         // validate fields //
         $endpointModel->validateFields ($fields);
         // response //
