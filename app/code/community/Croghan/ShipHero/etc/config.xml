@@ -68,6 +68,20 @@
             </catalog_product_save_after>
         </events>
     </global>
+    <frontend>
+        <!-- using for now; don't see any way to force credentials. when given more time will switch to api2 -->
+        <routers>
+            <shiphero>
+                <use>standard</use>
+                <args>
+                    <module>Croghan_ShipHero</module>
+                    <frontName>shiphero</frontName>
+                </args>
+            </shiphero>
+        </routers>
+    </frontend>
+
+    <!-- ENTRIES BELOW ARE DEPRECATED; USE SYSTEM CONFIG UNDER CATALOG INVENTORY -->
     <default>
         <croghan_shiphero>
             <api_key><!-- add to local.xml; https://app.shiphero.com/dashboard/settings/api --></api_key>
