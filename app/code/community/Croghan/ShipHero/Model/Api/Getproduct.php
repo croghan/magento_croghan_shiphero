@@ -21,7 +21,9 @@ class Croghan_ShipHero_Model_Api_Getproduct extends Croghan_ShipHero_Model_Api_A
     {
         $fields['sku'] = isset($_data['sku']) ? $_data['sku'] : '';
         $fields['page'] = isset($_data['page']) ? $_data['page'] : 1;
-        $fields['count'] = isset($_data['count']) ? $_data['count'] : 10;        
+        $fields['count'] = isset($_data['count']) ? $_data['count'] : 10;
+
+        return $fields;
     }
 
     /*
