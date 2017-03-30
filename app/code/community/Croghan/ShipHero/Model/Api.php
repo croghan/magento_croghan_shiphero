@@ -109,7 +109,7 @@ class Croghan_ShipHero_Model_Api
             array("Content-type: application/json")
         );
         curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($content));
 
         // execute and log error if any other http status code than 200 //
         $jsonResponse = curl_exec($curl);
