@@ -84,7 +84,7 @@ class Croghan_ShipHero_StockController extends Mage_Core_Controller_Front_Action
                     );
 
                 Mage::log(
-                    sprintf("%s product SKU inventory cleaned: '%s'", __METHOD__, $sku),
+                    sprintf("%s clearing shiphero cache for product sku %s", __METHOD__, $sku),
                     null,
                     'shiphero.log'
                 );
